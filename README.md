@@ -5,6 +5,22 @@
 
 ---
 
+## 🖼️ لقطات من التطبيق
+
+### شاشة تتبع السعرات والبحث
+
+![Calorie Tracker - Track Page](./screenshots/Track-Page.png)
+
+### عند عدم وجود نتائج بحث
+
+![No Result Found](./screenshots/No-Result-Found.png)
+
+### شاشة إضافة سجل جديد
+
+![Add Record](./screenshots/Edit%20Page.png)
+
+---
+
 ## 🚀 البدء السريع
 
 1. **تثبيت الاعتمادات:**
@@ -85,13 +101,6 @@ import { Button } from "@common";
 import { TrackPage } from "@pages";
 import { useLoadData } from "@utils/hooks";
 ```
-
----
-
-## 🎨 التخصيص
-
-- لتغيير الألوان أو الأنماط، عدل متغيرات CSS في [`src/index.css`](packages/client/src/index.css).
-- لإضافة حقول جديدة للسجلات، عدل النماذج في [`EditPage.jsx`](packages/client/src/pages/EditPage.jsx) و [`FormInput.jsx`](packages/client/src/common/FormInput.jsx).
 
 ---
 
