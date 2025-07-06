@@ -1,22 +1,21 @@
-import { useState, useEffect } from "react";
+import { AppContext } from "@root/AppContext";
+import { useState, useEffect, useContext } from "react";
 
-// ✅ عدّل hook ليأخذ apiUrl كـ state متغير وليس ثابت
-export function useLoadData(initialApiUrl) {
+export function useLoadData(url) {
   const [records, setRecords] = useState();
-  const [apiUrl, setApiUrl] = useState(initialApiUrl);
+  const [refresh, setRefresh] = useState(0);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
+  const { fromDate, toDate } = useContext(AppContext);
 
   useEffect(() => {
-    if (!apiUrl) return;
-
-    const controller = new AbortController();
-
     async function loadRecords() {
       setLoading(true);
       setError(null);
       try {
-        const response = await fetch(apiUrl, { signal: controller.signal });
+        const response = await fetch(
+          url ? url : `/api/records?start_date=${fromDate}&end_date=${toDate}`
+        );
 
         if (response.status === 404) {
           throw new Error("Data not found (404)");
@@ -39,8 +38,6 @@ export function useLoadData(initialApiUrl) {
     }
 
     loadRecords();
-
-    return () => controller.abort();
-  }, [apiUrl]);
-  return [records, loading, error, setApiUrl];
+  }, [refresh]);
+  return [records, loading, error, setRefresh];
 }

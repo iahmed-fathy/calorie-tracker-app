@@ -9,18 +9,15 @@ export function TrackPage() {
   const { fromDate, toDate, updateFromDate, updateToDate } =
     useContext(AppContext);
 
-  const [records, loading, error, setApiUrl] = useLoadData(null);
+  const [records, loading, error, setRefresh] = useLoadData();
 
   const searchData = (event) => {
     if (event) event.preventDefault();
-    const url = `/api/records?start_date=${fromDate}&end_date=${toDate}`;
-    console.log(url);
-
-    setApiUrl(url);
+    setRefresh((pre) => pre + 1);
   };
 
   useEffect(() => {
-    searchData();
+    setRefresh((pre) => pre + 1);
   }, []);
 
   function onChangeFromDateHandler(event) {
@@ -31,7 +28,7 @@ export function TrackPage() {
     updateToDate(event.target.value);
   }
 
-  let content = <RecordList records={records} />;
+  let content = <RecordList records={records} setRefresh={setRefresh} />;
   if (error) {
     content = <NoResultFound value={error} />;
   } else {
@@ -40,7 +37,7 @@ export function TrackPage() {
     ) : records?.length === 0 ? (
       <NoResultFound value="No Result Found" />
     ) : (
-      <RecordList records={records} />
+      <RecordList records={records} setRefresh={setRefresh} />
     );
   }
 

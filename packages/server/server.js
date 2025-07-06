@@ -152,3 +152,26 @@ app.put("/records/:id", (req, res) => {
     res.send("Record updated.");
   });
 });
+
+/**
+ * Deletes the record with a given id
+ * 'id' is passed as a request parameter.
+ * Example: DELETE /records/300
+ */
+app.delete("/records/:id", (req, res) => {
+  const { id } = req.params;
+
+  let sql = "DELETE FROM calorie_records WHERE id = ?";
+  db.run(sql, [id], function (err) {
+    if (err) {
+      res.status(500).send(err.message);
+      return console.error(err.message);
+    }
+
+    if (this.changes === 0) {
+      return res.status(404).send("Record not found");
+    }
+
+    res.send({ message: "Record deleted", changes: this.changes });
+  });
+});

@@ -161,10 +161,46 @@ export function EditPage() {
       contentRef.current.value = "sport";
       mealRef.current.value = "No Meal";
       caloriesRef.current.value = -100;
+      dispatchFn({
+        key: "date",
+        value: dateRef.current.value,
+      });
+      dispatchFn({
+        key: "meal",
+        value: "No Meal",
+      });
+      dispatchFn({
+        key: "content",
+        value: "sport",
+        auxValue: -100,
+      });
+      dispatchFn({
+        key: "calories",
+        value: -100,
+        auxValue: "sport",
+      });
     } else {
       contentRef.current.value = "";
       mealRef.current.value = "";
       caloriesRef.current.value = "";
+      dispatchFn({
+        key: "date",
+        value: dateRef.current.value,
+      });
+      dispatchFn({
+        key: "meal",
+        value: "",
+      });
+      dispatchFn({
+        key: "content",
+        value: "",
+        auxValue: 0,
+      });
+      dispatchFn({
+        key: "calories",
+        value: "",
+        auxValue: "",
+      });
     }
   }
 
