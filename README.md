@@ -1,40 +1,98 @@
-# Calorie Tracker Project
+# Calorie Tracker Frontend
 
-This is a demo react application with a small server to perform fetch requests to perform CRUD operations on in-memory data.
+واجهة أمامية تفاعلية لإدارة وتتبع السعرات الحرارية، مبنية باستخدام [React](https://react.dev/) و [Vite](https://vitejs.dev/).  
+تم تصميم التطبيق ليكون سهل الاستخدام، سريع الاستجابة، ومنظمًا بشكل يسمح بالتطوير المستقبلي بسهولة.
 
-## Setup
+---
 
-- install node
+## 🚀 البدء السريع
 
-- install project dependencies
+1. **تثبيت الاعتمادات:**
+
+   ```sh
+   npm install
+   ```
+
+2. **تشغيل البرنامج بالكامل (الواجهة الأمامية والخلفية):**
+
+   تأكد من تثبيت الاعتمادات في كلا المجلدين `packages/client` و `packages/server`، ثم شغّل الأمر التالي من جذر المشروع:
+
+   ```sh
+   npm run dev
+   ```
+
+   سيقوم هذا الأمر بتشغيل كل من الخادم الخلفي والواجهة الأمامية معًا في وضع التطوير.
+
+3. **زيارة التطبيق:**
+
+   افتح [http://localhost:5173](http://localhost:5173) في المتصفح لمعاينة التطبيق.
+
+> **ملاحظة:** يجب التأكد من أن الخادم الخلفي يعمل حتى تعمل جميع الميزات (راجع [README.md](../server/README.md)).
+
+---
+
+## 🗂️ بنية المجلدات
 
 ```
-npm install
+packages/client/
+  src/
+    App.jsx                # نقطة الدخول الرئيسية للتطبيق
+    AppContext.jsx         # إدارة الحالة العامة (Context API)
+    main.jsx               # تهيئة React وDOM
+    common/                # مكونات واجهة مستخدم قابلة لإعادة الاستخدام (أزرار، إدخالات...)
+    components/            # مكونات متخصصة (سجلات، قوائم...)
+    pages/                 # صفحات التطبيق (تتبع، تفاصيل، إضافة...)
+    utils/                 # دوال وأدوات مساعدة (hooks, formatDate...)
+  public/                  # ملفات ثابتة (أيقونات، صور...)
+  index.html               # ملف HTML الرئيسي
+  vite.config.js           # إعدادات Vite (مع دعم المسارات المختصرة)
 ```
 
-- start client and server
+### أهم الملفات والمجلدات
 
+- [`src/App.jsx`](packages/client/src/App.jsx): تعريف المسارات والصفحات باستخدام React Router.
+- [`src/AppContext.jsx`](packages/client/src/AppContext.jsx): إدارة الحالة العامة مثل التواريخ والسعرات.
+- [`src/pages/TrackPage.jsx`](packages/client/src/pages/TrackPage.jsx): صفحة عرض وتتبع السجلات مع البحث بالتاريخ.
+- [`src/pages/EditPage.jsx`](packages/client/src/pages/EditPage.jsx): صفحة إضافة سجل جديد.
+- [`src/components/records/RecordList.jsx`](packages/client/src/components/records/RecordList.jsx): عرض قائمة السجلات.
+- [`src/common/FormInput.jsx`](packages/client/src/common/FormInput.jsx): مكون إدخال موحد للنماذج.
+- [`src/utils/hooks/useLoadData.js`](packages/client/src/utils/hooks/useLoadData.js): hook لجلب البيانات من الخادم.
+
+---
+
+## ✨ الميزات
+
+- **إضافة/عرض/حذف السجلات** بسهولة وسرعة.
+- **بحث متقدم حسب التاريخ** أو فترة زمنية محددة.
+- **تصميم متجاوب** وواجهة مستخدم حديثة وسهلة الاستخدام.
+- **إدارة حالة مركزية** باستخدام React Context لضمان تجربة سلسة.
+- **تنظيم عالي للمجلدات** مع فصل واضح للمكونات والصفحات والأدوات.
+
+---
+
+## 🛠️ تطوير الواجهة
+
+- استخدم المسارات المختصرة (alias) مثل `@common`, `@pages`, `@components` لتسهيل الاستيراد.
+- جميع الأنماط مكتوبة بـ CSS Modules لضمان عدم تعارض الأنماط.
+- يمكنك إضافة صفحات أو مكونات جديدة داخل مجلد `src/pages` أو `src/components` بسهولة.
+
+---
+
+## 📦 أمثلة على الاستيراد
+
+```js
+import { Button } from "@common";
+import { TrackPage } from "@pages";
+import { useLoadData } from "@utils/hooks";
 ```
-npm run start
-```
 
-- To close both client and server, hit Ctrl+c
+---
 
-## Front-end
+## 🎨 التخصيص
 
-React based project using vite setup.
+- لتغيير الألوان أو الأنماط، عدل متغيرات CSS في [`src/index.css`](packages/client/src/index.css).
+- لإضافة حقول جديدة للسجلات، عدل النماذج في [`EditPage.jsx`](packages/client/src/pages/EditPage.jsx) و [`FormInput.jsx`](packages/client/src/common/FormInput.jsx).
 
-## Back-end
+---
 
-Small server with in-memory SQLite database that starts with random data for the past 60 days (day in / day out).
-
-## API
-
-- List all: http://localhost:3000/records (GET)
-- List for specific date: http://localhost:3000/records?date=2000-2-28 (GET)
-- Get specific record: http://localhost:3000/records/:id (GET)
-- Create new record: http://localhost:3000/records (POST)
-- Update existing record: http://localhost:3000/records/:id (PUT)
-- Delete existing record: http://localhost:3000/records/:id (DELETE)
-
-More details can be found in _packages/server/README.md_
+> لمزيد من التفاصيل حول الواجهة الخلفية وواجهة الـ API راجع [packages/server/README.md](packages/server/README.md)

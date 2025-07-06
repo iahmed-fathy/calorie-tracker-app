@@ -1,0 +1,69 @@
+- .gitignore
+- README.md
+- lerna-debug.log
+- lerna.json
+- package-lock.json
+- package.json
+- packages
+  - client
+    - .gitignore
+    - index.html
+    - jsconfig.json
+    - package-lock.json
+    - package.json
+    - public
+      - icon-delete.svg
+      - vite.svg
+    - src
+      - App.jsx
+      - AppContext.jsx
+      - common
+        - Button.jsx
+        - Button.module.css
+        - FormInput.jsx
+        - FormInput.module.css
+        - SideNav.jsx
+        - SideNav.module.css
+        - StyledRecordCell.jsx
+        - StyledRecordCell.module.css
+        - index.js
+      - components
+        - records
+          - NoResultFound.jsx
+          - NoResultFound.module.css
+          - Record.jsx
+          - Record.module.css
+          - RecordDate.jsx
+          - RecordDate.module.css
+          - RecordList.jsx
+          - RecordList.module.css
+          - index.js
+      - index.css
+      - main.jsx
+      - pages
+        - DetailPage.jsx
+        - DetailPage.module.css
+        - EditPage.jsx
+        - EditPage.module.css
+        - ErrorPage.jsx
+        - LandingPage.jsx
+        - PageLayout.jsx
+        - PageLayout.module.css
+        - TrackPage.jsx
+        - TrackPage.module.css
+        - index.js
+      - utils
+        - hooks
+          - index.js
+          - useLoadData.js
+          - useNavigateAfterCountDown.js
+        - index.js
+        - utils.js
+    - vite.config.js
+  - server
+    - .gitignore
+    - README.md
+    - data-generator.js
+    - package-lock.json
+    - package.json
+    - server.js
