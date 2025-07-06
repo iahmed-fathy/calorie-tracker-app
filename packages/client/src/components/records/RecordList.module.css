@@ -1,0 +1,30 @@
+.list:has(li) {
+  margin-top: 50px;
+  list-style: none;
+  padding: 0;
+  border: 1px solid var(--theme-color-light);
+  border-radius: 10px;
+
+  p {
+    margin-top: 20px;
+  }
+
+  .listItem {
+    margin: 10px;
+    > a {
+      text-decoration: none;
+      > ul {
+        margin: auto;
+        font-size: 20px;
+        &:first-child &:last-child,
+        &:first-child {
+          border-bottom: none;
+
+          @media (max-width: 500px) {
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+}

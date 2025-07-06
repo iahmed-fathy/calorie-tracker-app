@@ -1,0 +1,17 @@
+.record {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  color: var(--theme-color-normal);
+  align-items: center;
+  padding: 5px 0;
+  background-color: white;
+  height: auto;
+  max-width: 768px;
+  cursor: pointer;
+}
+
+.record-calories {
+  color: var(--theme-color-dark);
+  font-weight: 400;
+}

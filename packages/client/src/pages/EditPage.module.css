@@ -1,0 +1,53 @@
+/* Form styles */
+
+.form {
+  display: grid;
+  gap: 10px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 786px;
+  text-align: start;
+  width: 100%;
+
+  .warning {
+    grid-column: 1/-1;
+    background-color: #fec400;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+
+  .sportCheckBox {
+    width: 100px;
+    grid-column: 1/-1;
+    margin-bottom: 10px;
+
+    label {
+      margin-left: 5px;
+    }
+  }
+  .closeBtn {
+    display: block;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 300px;
+    margin: auto;
+    border: 1px solid var(--theme-color-normal);
+    color: var(--theme-color-normal);
+    background-color: var(--theme-background-light);
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+    height: 50px;
+    align-content: center;
+  }
+}
+
+.form label {
+  color: var(--theme-color-dark);
+  text-align: start;
+  align-items: center;
+}

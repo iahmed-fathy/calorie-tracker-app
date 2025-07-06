@@ -1,0 +1,18 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 768px;
+  margin: 20px auto;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  color: var(--theme-color-normal);
+  border-bottom: 1px solid var(--theme-color-dark);
+}
+
+.link {
+  display: block;
+  margin-top: 20px;
+}

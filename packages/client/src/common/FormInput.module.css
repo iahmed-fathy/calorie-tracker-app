@@ -1,0 +1,27 @@
+.container {
+  display: grid;
+  align-items: center;
+}
+
+input:where([type="text"], [type="number"], [type="date"]),
+select {
+  background-color: var(--theme-background-light);
+  color: var(--theme-color-normal);
+  border: 1px solid var(--theme-background-normal);
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+  margin: auto;
+  margin-bottom: 20px;
+  font-size: 16px;
+  display: block;
+  outline: 0;
+
+  &:focus {
+    border: 3px solid #3e5058;
+  }
+}
+
+.error {
+  border: 1px solid maroon;
+}

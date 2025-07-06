@@ -1,0 +1,21 @@
+.Btn {
+  display: block;
+  background-color: var(--theme-color-normal);
+  color: white;
+  border-radius: 10px;
+  padding: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  width: 300px;
+  margin: auto;
+  border: 1px solid var(--theme-color-normal);
+  font-size: 18px;
+  height: 50px;
+
+  &:disabled {
+    background-color: lightgray;
+    border-width: 0;
+    color: gray;
+    pointer-events: none;
+  }
+}

@@ -1,0 +1,67 @@
+.App {
+  h1 {
+    margin: auto;
+    margin-bottom: 50px;
+    color: var(--theme-color-dark);
+    font-weight: 300;
+    font-size: 42px;
+    width: 100%;
+    text-align: center;
+    @media (max-width: 500px) {
+      margin-bottom: 20px;
+      font-size: 36px;
+    }
+  }
+}
+
+.filterContainer {
+  display: grid;
+  justify-items: center;
+
+  .Filter {
+    width: 60%;
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+
+    input {
+      margin-top: 15px;
+      background-color: var(--theme-background-ultralight);
+      color: var(--theme-color-normal);
+      border: 1px solid var(--theme-background-normal);
+      padding: 10px;
+      border-radius: 5px;
+      height: 50px;
+    }
+  }
+  .buttons {
+    margin-top: 20px;
+    display: grid;
+    justify-self: center;
+    gap: 15px;
+    width: 250px;
+    font-size: 18px;
+
+    .button {
+      background-color: var(--theme-color-normal);
+      color: white;
+      font-weight: bold;
+      border-radius: 10px;
+      cursor: pointer;
+      width: 100%;
+      min-height: 40px;
+      padding: 0 16px;
+      border: 1px solid var(--theme-color-normal);
+      text-align: center;
+      text-decoration: none;
+      align-content: center;
+      font-size: 18px;
+    }
+    .addRecord {
+      color: var(--theme-color-normal);
+      background-color: var(--theme-background-light);
+    }
+  }
+}
